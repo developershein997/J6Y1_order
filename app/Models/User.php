@@ -9,8 +9,8 @@ use App\Models\Admin\Banner;
 use App\Models\Admin\BannerAds;
 use App\Models\Admin\BannerText;
 use App\Models\Admin\Permission;
-use App\Models\Admin\ReportTransaction;
 use App\Models\Admin\Promotion;
+use App\Models\Admin\ReportTransaction;
 use App\Models\Admin\Role;
 use App\Models\Admin\TopTenWithdraw;
 use App\Models\PlaceBet;
@@ -29,13 +29,15 @@ class User extends Authenticatable implements Wallet
 {
     use HasApiTokens, HasFactory, HasWalletFloat, Notifiable;
 
-    private const PLAYER_ROLE = 4;
+    private const PLAYER_ROLE = 5;
 
-    private const AGENT_ROLE = 2;
+    private const AGENT_ROLE = 3;
 
-    private const SUB_AGENT_ROLE = 3;
+    private const SUB_AGENT_ROLE = 4;
 
     private const ADMIN_ROLE = 1; // 10.00
+
+    private const MASTER_ROLE = 2;
 
     /**
      * The attributes that are mass assignable.

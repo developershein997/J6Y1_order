@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>J6Y1 | Login</title>
+    <title>TTTGaming | Login</title>
 
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
@@ -253,7 +253,61 @@ function drawWaves() {
 
 drawWaves();
 
+// const canvas = document.getElementById('rainbow-bg');
+// const ctx = canvas.getContext('2d');
 
+// function resizeCanvas() {
+//     canvas.width = window.innerWidth;
+//     canvas.height = window.innerHeight;
+// }
+// resizeCanvas();
+// window.addEventListener('resize', resizeCanvas);
+
+// const colors = [
+//     '#FF3CAC', // pink
+//     '#784BA0', // purple
+//     '#2B86C5', // blue
+//     '#2FFFAF', // teal
+//     '#FFF720', // yellow
+//     '#FF3CAC'  // repeat for loop
+// ];
+
+// let t = 0;
+
+// function drawWaves() {
+//     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+//     let amplitude = 60;
+//     let waveCount = 5;
+//     let heightUnit = canvas.height / (waveCount + 1);
+
+//     for (let i = 0; i < waveCount; i++) {
+//         ctx.beginPath();
+//         for (let x = 0; x <= canvas.width; x += 2) {
+//             let angle = (x / 220) + t * (0.7 + 0.2 * i);
+//             let y = Math.sin(angle + i) * amplitude + (i + 1) * heightUnit;
+//             if (x === 0) ctx.moveTo(x, y);
+//             else ctx.lineTo(x, y);
+//         }
+//         ctx.lineTo(canvas.width, canvas.height);
+//         ctx.lineTo(0, canvas.height);
+//         ctx.closePath();
+
+//         // Create gradient for each wave
+//         let grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
+//         grad.addColorStop(0, colors[i]);
+//         grad.addColorStop(1, colors[i + 1]);
+//         ctx.fillStyle = grad;
+//         ctx.globalAlpha = 0.28 + 0.15 * Math.sin(t + i);
+//         ctx.fill();
+//     }
+
+//     ctx.globalAlpha = 1;
+//     t += 0.012;
+//     requestAnimationFrame(drawWaves);
+// }
+
+// drawWaves();
 
     </script>
 
