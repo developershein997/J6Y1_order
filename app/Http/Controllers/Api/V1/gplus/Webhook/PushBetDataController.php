@@ -99,8 +99,8 @@ class PushBetDataController extends Controller
                     'valid_bet_amount' => $tx['valid_bet_amount'] ?? $pushBet->valid_bet_amount,
                     'prize_amount' => $tx['prize_amount'] ?? $pushBet->prize_amount,
                     'tip_amount' => $tx['tip_amount'] ?? $pushBet->tip_amount,
-                    'created_at_provider' => (isset($tx['created_at']) && is_numeric($tx['created_at'])) ? now()->setTimestamp($tx['created_at']) : $pushBet->created_at_provider,
-                    'settled_at' => (isset($tx['settled_at']) && is_numeric($tx['settled_at'])) ? now()->setTimestamp($tx['settled_at']) : $pushBet->settled_at,
+                    'created_at_provider' => (isset($tx['created_at']) && is_numeric($tx['created_at'])) ? now()->setTimestamp($createdAtProviderInSeconds) : $pushBet->created_at_provider,
+                    'settled_at' => (isset($tx['settled_at']) && is_numeric($tx['settled_at'])) ? now()->setTimestamp($settledAtInSeconds) : $pushBet->settled_at,
                     'meta' => json_encode($tx),
                 ]);
             } else {
@@ -118,8 +118,8 @@ class PushBetDataController extends Controller
                     'valid_bet_amount' => $tx['valid_bet_amount'] ?? 0,
                     'prize_amount' => $tx['prize_amount'] ?? 0,
                     'tip_amount' => $tx['tip_amount'] ?? 0,
-                    'created_at_provider' => (isset($tx['created_at']) && is_numeric($tx['created_at'])) ? now()->setTimestamp($tx['created_at']) : null,
-                    'settled_at' => (isset($tx['settled_at']) && is_numeric($tx['settled_at'])) ? now()->setTimestamp($tx['settled_at']) : null,
+                    'created_at_provider' => (isset($tx['created_at']) && is_numeric($tx['created_at'])) ? now()->setTimestamp($createdAtProviderInSeconds) : null,
+                    'settled_at' => (isset($tx['settled_at']) && is_numeric($tx['settled_at'])) ? now()->setTimestamp($settledAtInSeconds) : null,
                     'meta' => json_encode($tx),
                 ]);
             }
