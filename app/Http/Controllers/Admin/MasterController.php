@@ -145,13 +145,13 @@ class MasterController extends Controller
         TransferLog::create([
             'from_user_id' => $admin->id,
             'to_user_id' => $user->id,
-            'amount' => $transfer_amount,
+            'amount' => $inputs['amount'],
             'type' => 'top_up',
             'description' => 'Initial Top Up from Owner to new Master',
             'meta' => [
                 'transaction_type' => TransactionName::CreditTransfer->value,
                 'old_balance' => $user->balanceFloat,
-                'new_balance' => $user->balanceFloat + $transfer_amount,
+                'new_balance' => $user->balanceFloat + $inputs['amount'],
             ],
         ]);
 
