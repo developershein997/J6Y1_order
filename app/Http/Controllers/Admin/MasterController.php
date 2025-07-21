@@ -143,15 +143,15 @@ class MasterController extends Controller
         }
         // Log the transfer
         TransferLog::create([
-            'from_user_id' => $owner->id,
-            'to_user_id' => $agent->id,
+            'from_user_id' => $admin->id,
+            'to_user_id' => $user->id,
             'amount' => $transfer_amount,
             'type' => 'top_up',
-            'description' => 'Initial Top Up from Owner to new agent',
+            'description' => 'Initial Top Up from Owner to new Master',
             'meta' => [
                 'transaction_type' => TransactionName::CreditTransfer->value,
-                'old_balance' => $agent->balanceFloat,
-                'new_balance' => $agent->balanceFloat + $transfer_amount,
+                'old_balance' => $user->balanceFloat,
+                'new_balance' => $user->balanceFloat + $transfer_amount,
             ],
         ]);
 
