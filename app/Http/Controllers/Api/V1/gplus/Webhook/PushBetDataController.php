@@ -77,6 +77,8 @@ class PushBetDataController extends Controller
             if (isset($request->request_time) && is_numeric($request->request_time)) {
                 $requestTimeInSeconds = floor($request->request_time / 1000);
             }
+
+            // check validation
             
             $settledAtInSeconds = (isset($tx['settled_at']) && $tx['settled_at']) ? floor($tx['settled_at'] / 1000) : null;
             $createdAtProviderInSeconds = (isset($tx['created_at']) && $tx['created_at']) ? floor($tx['created_at'] / 1000) : null;
