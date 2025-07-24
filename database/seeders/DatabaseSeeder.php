@@ -106,6 +106,16 @@ class DatabaseSeeder extends Seeder
             OperatorSeeder::class,
             TwoDLimitSeeder::class,
             ShanProductSeeder::class,
+            MrSlotyBoonGoSlotSeeder::class,
+            MrSlotyFaziSlotSeeder::class,
+            MrSlotyFelixSlotSeeder::class,
+            MrSlotyFuntaSlotSeeder::class,
+            MrSlotyGamingWorldSlotSeeder::class,
+            MrSlotyKAGamingSlotSeeder::class,
+            MrSlotyKironSlotSeeder::class,
+            MrSlotyVoltSlotSeeder::class,
+            MrSlotyRerakeSlotSeeder::class,
+            MrSlotyZuesPlaySlotSeeder::class
         ]);
     }
 }
