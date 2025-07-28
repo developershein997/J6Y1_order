@@ -20,10 +20,12 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                    @can("master_index")
                     <div class="d-flex justify-content-end mb-3">
                         <a href="{{ route('admin.agent.create') }}" class="btn btn-success " style="width: 100px;"><i
                                 class="fas fa-plus text-white  mr-2"></i>Create</a>
                     </div>
+                    @endcan
                     <div class="card">
                         <div class="card-body">
                             <table id="mytable" class="table table-bordered table-hover">
@@ -36,16 +38,18 @@
                                     <th>Status</th>
                                     <th>Balance</th>
                                     <!-- <th>Total Winlose Amt</th> -->
+                                    @can("master_index")
                                     <th>Action</th>
+                                    @endcan
                                     <!-- <th>Transfer</th> -->
                                 </thead>
                                 <tbody >
-                                   
+
                                     @if (isset($users))
                                         @if (count($users) > 0)
                                             @foreach ($users as $user)
                                                 <tr class="text-center">
-                                                    <td>{{ $loop->iteration }}</td>
+                                                  <td>{{ ($users->currentPage() - 1) * $users->perPage() + $loop->iteration }}</td>
                                                     <td>
                                                         <span class="d-block">{{ $user->name }}</span>
                                                     </td>
@@ -68,7 +72,7 @@
                                                     $totalAmt = $poneWintAmt + $result + $betNResults; --}}
 
                                                     <!-- <td class="{{$user->win_lose >= 0 ? 'text-success text-bold' : 'text-danger text-bold'}}">{{ number_format($user->win_lose) }}</td> -->
-
+                                            @can("master_index")
                                                     <td>
                                                         @if ($user->status == 1)
                                                             <a onclick="event.preventDefault(); document.getElementById('banUser-{{ $user->id }}').submit();"
@@ -143,6 +147,7 @@
                                         </a> --}}
 
                                                     </td>
+                                                    @endcan
                                                 </tr>
                                             @endforeach
                                         @else
@@ -156,6 +161,9 @@
                                 </tbody>
 
                             </table>
+                            <div class="d-flex justify-content-end mt-2">
+                                {{$users->links()}}
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -219,5 +227,7 @@
                 toastr.error("Failed to copy text: " + err);
             });
         }
+
+
     </script>
 @endsection
