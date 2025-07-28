@@ -97,10 +97,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/two-d-daily-winners', [TwoDigitBetController::class, 'dailyWinners']);
     // shan launch game
     Route::post('shan-launch-game', [ShanLaunchGameController::class, 'launch']);
-
+    Route::get('contact', [ContactController::class, 'get']);
 });
 
-Route::get('contact', [ContactController::class, 'get']);
+
 Route::get('promotion', [PromotionController::class, 'index']);
 Route::get('winnerText', [BannerController::class, 'winnerText']);
 Route::get('banner_Text', [BannerController::class, 'bannerText']);
