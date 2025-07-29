@@ -48,6 +48,9 @@ Route::group([
 
     Route::get('/player-list', [HomeController::class, 'playerList'])->name('playerList');
 
+    // Profile
+    Route::get('/profile/{id}',[HomeController::class,'profileIndex'])->name('profile_index');
+
     // banner etc start
 
     Route::resource('video-upload', AdsVedioController::class);

@@ -137,6 +137,18 @@
                             </a>
                         </li>
 
+                          <li class="nav-item ">
+                            <a href="{{ route('admin.profile_index',$id=auth()->user()->id) }}"
+                                class="nav-link {{ Route::current()->getName() == 'admin.profile_index' ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Profile
+                                </p>
+                            </a>
+                        </li>
+
+
+
                         @can('owner_access')
                             <li class="nav-item">
                                 <a href="{{ route('admin.master.index') }}"
