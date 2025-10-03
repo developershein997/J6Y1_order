@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->command('wagers:fetch')->everyFiveMinutes();
+        $schedule->command('app:clean-up-old-place-bet')->monthlyOn(3, '23:59');
     }
 
     /**
