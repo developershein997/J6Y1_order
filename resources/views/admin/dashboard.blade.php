@@ -168,7 +168,7 @@
             </div>
             @endif -->
 
-            {{-- <!-- Owner Balance Top-Up -->
+            <!-- Owner Balance Top-Up -->
             @can('owner_access')
             <div class="col-lg-4 col-12">
                 <div class="card card-warning">
@@ -189,7 +189,7 @@
                     </form>
                 </div>
             </div>
-            @endcan --}}
+            @endcan
 
         </div>
     </div>
