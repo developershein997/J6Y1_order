@@ -70,7 +70,7 @@ Route::post('update-password/{user}', [LoginController::class, 'updatePassword']
 // // Test Panel Route
 // Route::get('telegram/test', [App\Http\Controllers\TelegramBotController::class, 'testPanel']);
 
-// Route::post('/web-chat/send', [TelegramBotController::class, 'send'])->name('web.telegram.send');
+Route::post('/web-chat/send', [TelegramBotController::class, 'send'])->name('web.telegram.send');
 
 // Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
 //     Route::get('/transfer-logs', [TransferLogController::class, 'index'])->name('transfer-logs.index');
