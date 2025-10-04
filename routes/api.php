@@ -6,7 +6,7 @@ use App\Http\Controllers\Api\V1\Auth\AuthController;
 use App\Http\Controllers\Api\V1\Auth\ProfileController;
 
 use App\Http\Controllers\Api\TestDBTransactionController;
-use App\Http\Controllers\Api\V1\Bank\BankController;
+//use App\Http\Controllers\Api\V1\Bank\BankController;
 use App\Http\Controllers\Api\V1\BannerController;
 use App\Http\Controllers\Api\V1\ContactController;
 use App\Http\Controllers\Api\V1\Dashboard\AdminLoginController;
@@ -82,7 +82,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/banks', [GSCPlusProviderController::class, 'banks']);
 
     // fanicial api
-   // Route::get('agentfinicialPaymentType', [BankController::class, 'all']);
+   
     Route::post('depositfinicial', [DepositRequestController::class, 'FinicialDeposit']);
     Route::get('depositlogfinicial', [DepositRequestController::class, 'log']);
     Route::get('paymentTypefinicial', [GSCPlusProviderController::class, 'paymentType']);
