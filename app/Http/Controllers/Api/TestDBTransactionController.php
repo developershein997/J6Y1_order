@@ -15,6 +15,10 @@ class TestDBTransactionController extends Controller
     public function PurseService(Request $request)
 {
     try {
+        // Debug: Log the incoming request data
+        \Log::info('Request data:', $request->all());
+        \Log::info('Request content type:', $request->header('Content-Type'));
+        
         // Validate the incoming request data
         $validated = $request->validate([
             'user_name' => 'required|string',
