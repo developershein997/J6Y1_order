@@ -4,7 +4,8 @@ use App\Http\Controllers\Api\Player\GameLogController;
 use App\Http\Controllers\Api\Player\TransactionController;
 use App\Http\Controllers\Api\V1\Auth\AuthController;
 use App\Http\Controllers\Api\V1\Auth\ProfileController;
-use App\Http\Controllers\Api\V1\Bank\BankController as BankControllerAlias;
+
+use App\Http\Controllers\Api\TestDBTransactionController;
 use App\Http\Controllers\Api\V1\BankController;
 use App\Http\Controllers\Api\V1\BannerController;
 use App\Http\Controllers\Api\V1\ContactController;
@@ -47,7 +48,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // admin login
-Route::post('/admin/login', [AdminLoginController::class, 'login']);
+//Route::post('/admin/login', [AdminLoginController::class, 'login']);
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
@@ -56,6 +57,8 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::get('product-list', [ProductListController::class, 'index']);
 Route::get('operators/provider-games', [GameListController::class, 'index']);
+
+Route::post('/test-db-transaction', [TestDBTransactionController::class, 'PurseService']);
 
 Route::prefix('v1/api/seamless')->group(function () {
     Route::post('balance', [GetBalanceController::class, 'getBalance']);
@@ -79,7 +82,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/banks', [GSCPlusProviderController::class, 'banks']);
 
     // fanicial api
-    Route::get('agentfinicialPaymentType', [BankController::class, 'all']);
+   // Route::get('agentfinicialPaymentType', [BankController::class, 'all']);
     Route::post('depositfinicial', [DepositRequestController::class, 'FinicialDeposit']);
     Route::get('depositlogfinicial', [DepositRequestController::class, 'log']);
     Route::get('paymentTypefinicial', [GSCPlusProviderController::class, 'paymentType']);
@@ -117,9 +120,9 @@ Route::get('/game_lists/{type}/{provider}', [GSCPlusProviderController::class, '
 Route::get('/game_lists/{type}/{productcode}', [GSCPlusProviderController::class, 'NewgameLists']);
 Route::get('/hot_game_lists', [GSCPlusProviderController::class, 'hotGameLists']);
 
-Route::group(['prefix' => 'shanreport', 'middleware' => ['auth:sanctum']], function () {
-    Route::get('player-history', [ShanPlayerHistoryController::class, 'getPlayerHistory']);
-});
+// Route::group(['prefix' => 'shanreport', 'middleware' => ['auth:sanctum']], function () {
+//     Route::get('player-history', [ShanPlayerHistoryController::class, 'getPlayerHistory']);
+// });
 
 Route::group(['prefix' => 'shan'], function () {
     Route::post('getbalance', [ShanGetBalanceController::class, 'getBalance']);
@@ -145,17 +148,17 @@ Route::prefix('v1')->group(function () {
 //     return $request->user();
 // });
 
-Route::post('/auth/login', [LoginController::class, 'login']);
-Route::post('/auth/logout', [LoginController::class, 'logout']);
+//Route::post('/auth/login', [LoginController::class, 'login']);
+//Route::post('/auth/logout', [LoginController::class, 'logout']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
-    Route::get('/profile', [ProfileController::class, 'profile']);
+    //Route::get('/profile', [ProfileController::class, 'profile']);
     Route::post('/change-password', [AuthController::class, 'changePassword']);
-    Route::get('/banks', [BankControllerAlias::class, 'all']);
-    Route::get('/promotions', [PromotionControllerAlias::class, 'index']);
-    Route::get('/game-list', [GameController::class, 'gameList']);
-    Route::get('/launch-game', [LaunchGameController::class, 'launchGame']);
-    Route::get('/wallet-balance', [WalletController::class, 'balance']);
+    //Route::get('/banks', [BankControllerAlias::class, 'all']);
+    //Route::get('/promotions', [PromotionControllerAlias::class, 'index']);
+   // Route::get('/game-list', [GameController::class, 'gameList']);
+    //Route::get('/launch-game', [LaunchGameController::class, 'launchGame']);
+    //Route::get('/wallet-balance', [WalletController::class, 'balance']);
 });
 
 // DigitBet API routes, protected by sanctum middleware
