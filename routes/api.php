@@ -6,7 +6,7 @@ use App\Http\Controllers\Api\V1\Auth\AuthController;
 use App\Http\Controllers\Api\V1\Auth\ProfileController;
 
 use App\Http\Controllers\Api\TestDBTransactionController;
-use App\Http\Controllers\Api\V1\BankController;
+use App\Http\Controllers\Api\V1\Bank\BankController;
 use App\Http\Controllers\Api\V1\BannerController;
 use App\Http\Controllers\Api\V1\ContactController;
 use App\Http\Controllers\Api\V1\Dashboard\AdminLoginController;
@@ -142,23 +142,12 @@ Route::prefix('v1')->group(function () {
     });
 });
 
-// Route::post('/callback', ProviderTransactionCallbackController::class);.
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-//Route::post('/auth/login', [LoginController::class, 'login']);
-//Route::post('/auth/logout', [LoginController::class, 'logout']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
     //Route::get('/profile', [ProfileController::class, 'profile']);
     Route::post('/change-password', [AuthController::class, 'changePassword']);
-    //Route::get('/banks', [BankControllerAlias::class, 'all']);
-    //Route::get('/promotions', [PromotionControllerAlias::class, 'index']);
-   // Route::get('/game-list', [GameController::class, 'gameList']);
-    //Route::get('/launch-game', [LaunchGameController::class, 'launchGame']);
-    //Route::get('/wallet-balance', [WalletController::class, 'balance']);
+    
 });
 
 // DigitBet API routes, protected by sanctum middleware
