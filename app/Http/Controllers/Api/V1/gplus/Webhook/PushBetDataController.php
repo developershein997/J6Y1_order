@@ -58,7 +58,7 @@ class PushBetDataController extends Controller
             if (! $user) {
                 Log::warning('Member not found for pushBetData', ['member_account' => $memberAccount, 'transaction' => $tx]);
 
-                
+
                 return response()->json([
                     'code' => SeamlessWalletCode::MemberNotExist->value,
                     'message' => 'Member not found',
@@ -79,7 +79,7 @@ class PushBetDataController extends Controller
             }
 
             // check validation
-            
+
             $settledAtInSeconds = (isset($tx['settled_at']) && $tx['settled_at']) ? floor($tx['settled_at'] / 1000) : null;
             $createdAtProviderInSeconds = (isset($tx['created_at']) && $tx['created_at']) ? floor($tx['created_at'] / 1000) : null;
 

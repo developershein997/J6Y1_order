@@ -33,6 +33,12 @@ return new class extends Migration
             $table->timestamp('settled_at')->nullable();
 
             $table->json('meta')->nullable();
+            $table->index('wager_code');
+            $table->index('wager_status');
+            $table->index('wager_type');
+            $table->index('product_code');
+            $table->index('game_code');
+            $table->index('created_at_provider');
 
             $table->timestamps(); // Laravel's created_at and updated_at
         });

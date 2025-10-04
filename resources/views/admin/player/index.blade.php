@@ -18,10 +18,12 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="d-flex justify-content-end mb-3">
+                    @can("agent_access")
+                     <div class="d-flex justify-content-end mb-3">
                         <a href="{{ route('admin.agent.player.create') }}" class="btn btn-success " style="width: 100px;"><i
                                 class="fas fa-plus text-white  mr-2"></i>Create</a>
                     </div>
+                    @endcan
                     <div class="card " style="border-radius: 20px;">
                         <div class="card-header">
                             <h3>Player Lists</h3>
@@ -124,7 +126,7 @@
                                                             <i class="fas fa-right-left text-white me-1"></i>
                                                             Logs
                                                         </a>
-                                                       
+
                                                         <a href="{{ route('admin.subacc.player.report_detail', $user->id) }}"
                                                             data-bs-toggle="tooltip" data-bs-original-title="Reports"
                                                             class="btn btn-info btn-sm ">

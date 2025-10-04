@@ -16,7 +16,7 @@ class PermissionRoleTableSeeder extends Seeder
             'agent_index', 'agent_create', 'agent_edit', 'agent_delete',
             'transfer_log', 'make_transfer',
             'game_type_access', 'provider_access', 'provider_create', 'provider_edit', 'provider_delete', 'provider_index', 'master_access',
-            'master_index',
+            // 'master_index',
             'master_create',
             'master_edit',
             'master_delete',
@@ -145,7 +145,7 @@ class PermissionRoleTableSeeder extends Seeder
     private function cleanupExistingAssignments(): void
     {
         try {
-            DB::table('permission_role')->truncate();
+            DB::table('permission_role')->delete();
             Log::info('Cleaned up existing permission assignments');
         } catch (\Exception $e) {
             Log::error('Failed to cleanup existing permission assignments: '.$e->getMessage());
